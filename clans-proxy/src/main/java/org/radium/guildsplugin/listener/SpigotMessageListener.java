@@ -32,6 +32,13 @@ public class SpigotMessageListener implements Listener {
                     return;
                 }
                 victimGuild.getSettings().getGuildStats().addStat("deaths", 1);
+                victimGuild.getSettings().getGuildStats().addStat("points",
+                        Core.getInstance().getSettings().getConfig().getInt("Points.PointsPerDeath"));
+                if (!Core.getInstance().getSettings().getConfig().getBoolean("Points.PointsCanBeNegative:")){
+                    if (victimGuild.getSettings().getGuildStats().getGlobalPoints() <= 0){
+                        victimGuild.getSettings().getGuildStats().setGlobalPoints(0);
+                    }
+                }
                 GuildMember guildKillerMember = Core.getInstance().getGuildMemberManager().getGuildMember(killer);
                 if (guildKillerMember == null){
                     return;
@@ -41,6 +48,8 @@ public class SpigotMessageListener implements Listener {
                     return;
                 }
                 killerGuild.getSettings().getGuildStats().addStat("kills", 1);
+                killerGuild.getSettings().getGuildStats().addStat("points",
+                        Core.getInstance().getSettings().getConfig().getInt("Points.PointsPerKill"));
         }
     }
 }

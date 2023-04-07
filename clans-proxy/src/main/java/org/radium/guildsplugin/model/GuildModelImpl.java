@@ -1,10 +1,13 @@
 package org.radium.guildsplugin.model;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
+import org.radium.guildsplugin.enums.TopType;
 import org.radium.guildsplugin.manager.object.guild.Guild;
 import org.radium.guildsplugin.manager.object.guild.GuildInvite;
 import org.radium.guildsplugin.manager.object.guild.GuildSettings;
 import org.radium.guildsplugin.manager.object.member.GuildMember;
+
+import java.util.HashMap;
 
 public interface GuildModelImpl {
     void createGuild(ProxiedPlayer owner, String name, String tag);
@@ -29,4 +32,5 @@ public interface GuildModelImpl {
     void renameGuild(int guildId, String newName);
     void setGuildTag(int guildId, String newTag);
     void setGuildColor(int guildId, String newColor);
+    HashMap<Guild, Integer> getTop(TopType type);
 }

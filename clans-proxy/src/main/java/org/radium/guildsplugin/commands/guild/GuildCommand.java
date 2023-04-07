@@ -89,5 +89,14 @@ public class GuildCommand extends Command {
         if (args[0].equalsIgnoreCase("leave")){
             new LeaveSubCommand(player, args);
         }
+        if (args[0].equalsIgnoreCase("topkills")){
+            new TopKillsSubCommand(player, args);
+        }
+        if (args[0].equalsIgnoreCase("topdeaths")){
+            new TopDeathsSubCommand(player, args);
+        }
+        if (args[0].equalsIgnoreCase("toppoints")){
+            new TopPointsSubCommand(player, args);
+        }
     }
 }

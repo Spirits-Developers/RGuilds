@@ -29,7 +29,7 @@ public class LanguageManager {
 
         if (!languageConfig.contains(key)) {
             Core.getInstance().getLogger().warning("Message not found for key '" + key + "' in language '" + language + "'");
-            return "Missing message: " + key;
+            return "Missing message: " + key +", Please delete the messages_<lang>.yml folder to get replaced!";
         }
 
         return languageConfig.getString(key);

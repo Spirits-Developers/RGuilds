@@ -6,6 +6,10 @@ GuildCreate:
   Message: "&c✖ You don't have permission for this."
   MinimumNameLength: 3
   MaximumNameLength: 16
+Points:
+  PointsPerKill: 10
+  PointsPerDeath: -5
+  PointsCanBeNegative: false
 GuildTag:
   MinimumTagLength: 2
   MaximumTagLength: 3

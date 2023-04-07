@@ -36,6 +36,9 @@ Command:
         %prefix%&e✫ /guild rename <name> &6★ &7Update guild's name.
         %prefix%&e✫ /guild setTag <tag> &6★ &7Update guild's tag.
         %prefix%&e✫ /guild setColor <color> &6★ &7Update guild's color.
+        %prefix%&e✫ /guild topkills &6★ &7Top 10 guild kills.
+        %prefix%&e✫ /guild topdeaths &6★ &7Top 10 guild deaths.
+        %prefix%&e✫ /guild toppoints &6★ &7Top 10 guild points.
       GuildCreation:
         Usage: "&e✫ /guild create <name> <tag>"
         NameTaken: "&c✖ Guild name is already used."
@@ -122,6 +125,21 @@ Command:
         Left: "&a✫ You have left from the guild $guild."
         ToGuildMessage: "&a✫ Player &c$player &cleft the guild!"
         LeaderOfGuild: "&c✖ You're the leader, Disband guild using /g disband."
+      GuildTopKills:
+        Usage: "&e✫ /guild topkills"
+        Message:
+          Header: "&8┃ &7TOP GUILD KILLS:\n"
+          Rest: "&8┃ &e#%RANK%. %COLOR%%GUILD% &8➟ &e%AMOUNT% kills."
+      GuildTopDeaths:
+        Usage: "&e✫ /guild topdeaths"
+        Message:
+          Header: "&8┃ &7TOP GUILD DEATHS:\n"
+          Rest: "&8┃ &e#%RANK%. %COLOR%%GUILD% &8➟ &e%AMOUNT% deaths."
+      GuildTopPoints:
+        Usage: "&e✫ /guild toppoints"
+        Message:
+          Header: "&8┃ &7TOP GUILD POINTS:\n"
+          Rest: "&8┃ &e#%RANK%. %COLOR%%GUILD% &8➟ &e%AMOUNT% points."
   GuildAdmin:
     SubCommands:
       Help: |

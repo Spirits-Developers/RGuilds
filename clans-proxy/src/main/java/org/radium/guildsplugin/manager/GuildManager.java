@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
 import org.radium.guildsplugin.enums.GuildRankType;
+import org.radium.guildsplugin.enums.TopType;
 import org.radium.guildsplugin.manager.loader.GuildLoader;
 import org.radium.guildsplugin.manager.loader.PlayerLoader;
 import org.radium.guildsplugin.manager.object.guild.Guild;
@@ -20,7 +21,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 public class GuildManager implements GuildModelImpl {
     public final @Getter HashMap<Integer, Guild> guildMap = new HashMap<>();
@@ -269,4 +269,31 @@ public class GuildManager implements GuildModelImpl {
         }
         guild.getSettings().setGuildColor(newColor);
     }
+
+    public HashMap<Guild, Integer> getTop(TopType type) {
+        HashMap<Guild, Integer> top = new HashMap<>();
+        switch (type) {
+            case KILLS:
+                guildMap.forEach((guildName, guild) -> top.put(guild, guild.getSettings().getGuildStats().getGlobalKills()));
+                break;
+            case DEATHS:
+                guildMap.forEach((guildName, guild) -> top.put(guild, guild.getSettings().getGuildStats().getGlobalDeaths()));
+                break;
+            case POINTS:
+                guildMap.forEach((guildName, guild) -> top.put(guild, guild.getSettings().getGuildStats().getGlobalPoints()));
+                break;
+            default:
+                break;
+        }
+
+        List<Map.Entry<Guild, Integer>> list = new ArrayList<>(top.entrySet());
+        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+
+        HashMap<Guild, Integer> sortedTop = new LinkedHashMap<>();
+        for (Map.Entry<Guild, Integer> entry : list) {
+            sortedTop.put(entry.getKey(), entry.getValue());
+        }
+        return sortedTop;
+    }
+
 }
