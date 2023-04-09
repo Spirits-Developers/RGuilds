@@ -1,17 +1,15 @@
-package org.radium.guildsplugin.commands.guildadmin.SubCommands;
+package org.radium.guildsplugin.commands.guildadmin.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
-import org.radium.guildsplugin.enums.GuildRankType;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.manager.object.guild.Guild;
-import org.radium.guildsplugin.manager.object.member.GuildMember;
 import org.radium.guildsplugin.util.TextHelper;
 
-public class AdminAddKillsSubCommand {
-    private final String subCommandSection = "Command.GuildAdmin.SubCommands.GuildAddKills.";
+public class AdminAddPointsSubCommand {
+    private final String subCommandSection = "Command.GuildAdmin.SubCommands.GuildAddPoints.";
 
-    public AdminAddKillsSubCommand(ProxiedPlayer player, String[] args) {
+    public AdminAddPointsSubCommand(ProxiedPlayer player, String[] args) {
         if (args.length != 3) {
             TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "Usage"));
             return;
@@ -30,7 +28,7 @@ public class AdminAddKillsSubCommand {
 
         int amount = Integer.parseInt(args[2]);
 
-        guild.getSettings().getGuildStats().addStat("kills", amount);
+        guild.getSettings().getGuildStats().addStat("points", amount);
         TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "Added")
                 .replace("{amount}", amount+"")
                 .replace("$guild", guild.getSettings().getGuildName()));

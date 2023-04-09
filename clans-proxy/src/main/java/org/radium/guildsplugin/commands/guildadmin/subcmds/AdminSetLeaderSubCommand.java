@@ -1,4 +1,4 @@
-package org.radium.guildsplugin.commands.guildadmin.SubCommands;
+package org.radium.guildsplugin.commands.guildadmin.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
@@ -12,6 +12,8 @@ public class AdminSetLeaderSubCommand {
     private final String subCommandSection = "Command.GuildAdmin.SubCommands.GuildSetLeader.";
 
     public AdminSetLeaderSubCommand(ProxiedPlayer player, String[] args) {
+        /*
+
         if (args.length != 3) {
             TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "Usage"));
             return;
@@ -55,5 +57,6 @@ public class AdminSetLeaderSubCommand {
                 .replace("{from}", from)
                 .replace("{to}", proxiedPlayer.getName())
                 .replace("$guild", guild.getSettings().getGuildName()));
+    */
     }
 }

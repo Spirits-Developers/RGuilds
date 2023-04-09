@@ -19,37 +19,33 @@ public class SpigotMessageListener implements Listener {
         if (!subChannel.equals("Guilds"))
             return;
         String command = in.readUTF();
-        switch (command){
-            case "UpdateGuildStats":
-                String killer = in.readUTF();
-                String victim = in.readUTF();
-                GuildMember guildVictimMember = Core.getInstance().getGuildMemberManager().getGuildMember(victim);
-                if (guildVictimMember == null){
-                    return;
-                }
-                Guild victimGuild = Core.getInstance().getGuildManager().getGuild(guildVictimMember.getGuildId());
-                if (victimGuild == null){
-                    return;
-                }
+        if (command.equals("UpdateGuildStats")) {
+            String killer = in.readUTF();
+            String victim = in.readUTF();
+
+            System.out.println(killer);
+            System.out.println(victim);
+
+            GuildMember guildKillerMember = Core.getInstance().getGuildMemberManager().getGuildMember(killer);
+            Guild killerGuild;
+            if (guildKillerMember != null) {
+                killerGuild = Core.getInstance().getGuildManager().getGuild(guildKillerMember.getGuildId());
+                killerGuild.getSettings().getGuildStats().addStat("kills", 1);
+                killerGuild.getSettings().getGuildStats().addStat("points", Core.getInstance().getSettings().getConfig().getInt("Points.PointsPerKill"));
+            }
+            GuildMember victimGuildMember = Core.getInstance().getGuildMemberManager().getGuildMember(victim);
+            Guild victimGuild;
+            if (victimGuildMember != null) {
+                victimGuild = Core.getInstance().getGuildManager().getGuild(victimGuildMember.getGuildId());
                 victimGuild.getSettings().getGuildStats().addStat("deaths", 1);
                 victimGuild.getSettings().getGuildStats().addStat("points",
                         Core.getInstance().getSettings().getConfig().getInt("Points.PointsPerDeath"));
-                if (!Core.getInstance().getSettings().getConfig().getBoolean("Points.PointsCanBeNegative:")){
-                    if (victimGuild.getSettings().getGuildStats().getGlobalPoints() <= 0){
+                if (!Core.getInstance().getSettings().getConfig().getBoolean("Points.PointsCanBeNegative")) {
+                    if (victimGuild.getSettings().getGuildStats().getGlobalPoints() <= 0) {
                         victimGuild.getSettings().getGuildStats().setGlobalPoints(0);
                     }
                 }
-                GuildMember guildKillerMember = Core.getInstance().getGuildMemberManager().getGuildMember(killer);
-                if (guildKillerMember == null){
-                    return;
-                }
-                Guild killerGuild = Core.getInstance().getGuildManager().getGuild(guildKillerMember.getGuildId());
-                if (killerGuild == null){
-                    return;
-                }
-                killerGuild.getSettings().getGuildStats().addStat("kills", 1);
-                killerGuild.getSettings().getGuildStats().addStat("points",
-                        Core.getInstance().getSettings().getConfig().getInt("Points.PointsPerKill"));
+            }
         }
     }
 }

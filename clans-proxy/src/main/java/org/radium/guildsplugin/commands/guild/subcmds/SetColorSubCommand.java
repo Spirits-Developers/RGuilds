@@ -1,15 +1,11 @@
-package org.radium.guildsplugin.commands.guild.SubCommands;
+package org.radium.guildsplugin.commands.guild.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.scheduler.TaskScheduler;
 import org.radium.guildsplugin.Core;
 import org.radium.guildsplugin.enums.GuildRankType;
-import org.radium.guildsplugin.manager.CommunicationManager;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.manager.object.member.GuildMember;
 import org.radium.guildsplugin.util.TextHelper;
-
-import java.util.concurrent.TimeUnit;
 
 public class SetColorSubCommand {
     private final String subCommandSection = "Command.Guild.SubCommands.GuildSetColor.";

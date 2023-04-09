@@ -17,7 +17,7 @@ Settings:
     NotFound: "&7"
 LabyMod:
   EnableTitles: true #titles shown under player's name
-  EnableLabyModStatus: true #that will become on labychat server joined status
+  EnableLabyModStatus: false #that will become on labychat server joined status
   Titles:
     Size: 0.8
     Ranks:

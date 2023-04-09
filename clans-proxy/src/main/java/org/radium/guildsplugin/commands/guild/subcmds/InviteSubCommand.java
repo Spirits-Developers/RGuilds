@@ -1,4 +1,4 @@
-package org.radium.guildsplugin.commands.guild.SubCommands;
+package org.radium.guildsplugin.commands.guild.subcmds;
 
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
@@ -7,7 +7,6 @@ import net.md_5.bungee.api.chat.hover.content.Text;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
 import org.radium.guildsplugin.enums.GuildPermissionType;
-import org.radium.guildsplugin.enums.GuildRankType;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.manager.object.guild.Guild;
 import org.radium.guildsplugin.manager.object.guild.GuildInvite;

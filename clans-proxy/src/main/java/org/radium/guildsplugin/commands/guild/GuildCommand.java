@@ -4,7 +4,7 @@ import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 import org.radium.guildsplugin.Core;
-import org.radium.guildsplugin.commands.guild.SubCommands.*;
+import org.radium.guildsplugin.commands.guild.subcmds.*;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.util.TextHelper;
 

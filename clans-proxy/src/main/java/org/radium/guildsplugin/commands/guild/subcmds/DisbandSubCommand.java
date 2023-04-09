@@ -1,4 +1,4 @@
-package org.radium.guildsplugin.commands.guild.SubCommands;
+package org.radium.guildsplugin.commands.guild.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
@@ -30,6 +30,8 @@ public class DisbandSubCommand {
         Core.getInstance().getGuildManager().sendPrefixedMessageToGuildMembers(
                 guildMember.getGuildId(), LanguageManager.getMsg(subCommandSection + "ToGuildMessage")
         );
+
+
         Core.getInstance().getGuildManager().deleteGuild(guildMember.getGuildId());
         TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "GuildRemoved"));
     }

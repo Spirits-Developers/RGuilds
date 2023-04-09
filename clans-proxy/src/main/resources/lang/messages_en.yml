@@ -146,7 +146,7 @@ Command:
         &e
         %prefix%&e✫ /gadmin help &6★ &7for help.
         %prefix%&e✫ /gadmin deleteGuild <guild> &6★ &7Remove a guild.
-        %prefix%&e✫ /gadmin setLeader <guild> <player> &6★ &7Set a new guild leader.
+        %prefix%&c✫ /gadmin setLeader <guild> <player> <working on it> &6★ &7Set a new guild leader.
         %prefix%&e✫ /gadmin kickFromGuild <player> &6★ &7Kick a player from his guild.
         %prefix%&e✫ /gadmin addKills <guild> <amount> &6★ &7Add an amount of kills to a guild.
         %prefix%&e✫ /gadmin addDeaths <guild> <amount> &6★ &7Add an amount of deaths to a guild.

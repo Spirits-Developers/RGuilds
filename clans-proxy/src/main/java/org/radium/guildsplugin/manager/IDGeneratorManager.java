@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 public class IDGeneratorManager {
     private static int id = 0;
     public static int getNextId(){
-        return id+1;
+        return id++;
     }
     public static void loadHighestIdFromDatabase(){
         try {

@@ -1,9 +1,8 @@
-package org.radium.guildsplugin.commands.guild.SubCommands;
+package org.radium.guildsplugin.commands.guild.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
 import org.radium.guildsplugin.enums.GuildRankType;
-import org.radium.guildsplugin.manager.CommunicationManager;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.manager.object.member.GuildMember;
 import org.radium.guildsplugin.util.TextHelper;
@@ -33,7 +32,7 @@ public class RenameSubCommand {
         int maxName = Core.getInstance().getSettings().getConfig().getInt("GuildCreate.MaximumNameLength");
         int minName = Core.getInstance().getSettings().getConfig().getInt("GuildCreate.MinimumNameLength");
         if (newName.length() < minName || newName.length() > maxName || !newName.matches("[a-zA-Z0-9]+")) {
-            TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "InvaildGuildName")
+            TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg("Command.Guild.SubCommands.GuildCreation.InvaildGuildName")
                     .replace("{1}", minName+"")
                     .replace("{2}", maxName+""));
             return;

@@ -1,4 +1,4 @@
-package org.radium.guildsplugin.commands.guildadmin.SubCommands;
+package org.radium.guildsplugin.commands.guildadmin.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;

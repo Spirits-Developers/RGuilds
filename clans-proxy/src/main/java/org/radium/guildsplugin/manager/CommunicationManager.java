@@ -20,6 +20,7 @@ public class CommunicationManager {
         String guildTag = "";
         String guildColor = "";
         String guildRank = GuildRankType.MEMBER.name();
+        int guildKills = 0;
 
         GuildMember guildMember = Core.getInstance().getGuildMemberManager().getGuildMember(playerName);
 
@@ -33,6 +34,7 @@ public class CommunicationManager {
             guildTag = guild.getSettings().getGuildTag();
             guildColor = guild.getSettings().getGuildColor();
             guildRank = guildMember.getGuildRank().name();
+            guildKills = guild.getSettings().getGuildStats().getGlobalKills();
         }
 
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
@@ -44,6 +46,7 @@ public class CommunicationManager {
         out.writeUTF(guildTag);
         out.writeUTF(guildColor);
         out.writeUTF(guildRank);
+        out.writeInt(guildKills);
 
         sendData(out, null);
     }

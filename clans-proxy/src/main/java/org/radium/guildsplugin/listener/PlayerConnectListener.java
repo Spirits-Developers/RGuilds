@@ -16,4 +16,5 @@ public class PlayerConnectListener implements Listener {
             CommunicationManager.sendPlayerInformation(event.getPlayer());
         }, 3L, TimeUnit.MILLISECONDS);
     }
+
 }

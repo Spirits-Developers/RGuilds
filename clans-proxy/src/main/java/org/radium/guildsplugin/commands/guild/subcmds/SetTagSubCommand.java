@@ -1,9 +1,8 @@
-package org.radium.guildsplugin.commands.guild.SubCommands;
+package org.radium.guildsplugin.commands.guild.subcmds;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.radium.guildsplugin.Core;
 import org.radium.guildsplugin.enums.GuildRankType;
-import org.radium.guildsplugin.manager.CommunicationManager;
 import org.radium.guildsplugin.manager.LanguageManager;
 import org.radium.guildsplugin.manager.object.member.GuildMember;
 import org.radium.guildsplugin.util.TextHelper;
@@ -33,7 +32,7 @@ public class SetTagSubCommand {
         int max = Core.getInstance().getSettings().getConfig().getInt("GuildTag.MaximumTagLength");
         int min = Core.getInstance().getSettings().getConfig().getInt("GuildTag.MinimumTagLength");
         if (newTag.length() < min || newTag.length() > max || !newTag.matches("[a-zA-Z0-9]+")) {
-            TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg(subCommandSection + "InvaildGuildTag")
+            TextHelper.sendPrefixedMessage(player, LanguageManager.getMsg("Command.Guild.SubCommands.GuildCreation.InvaildGuildTag")
                     .replace("{1}", min+"")
                     .replace("{2}", max+""));
             return;
