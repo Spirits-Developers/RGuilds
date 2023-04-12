@@ -23,9 +23,6 @@ public class SpigotMessageListener implements Listener {
             String killer = in.readUTF();
             String victim = in.readUTF();
 
-            System.out.println(killer);
-            System.out.println(victim);
-
             GuildMember guildKillerMember = Core.getInstance().getGuildMemberManager().getGuildMember(killer);
             Guild killerGuild;
             if (guildKillerMember != null) {
